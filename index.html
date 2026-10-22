@@ -3,23 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Drop Game</title>
+    <title>Drop It in the Bucket</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="game-wrapper">
-        <h1 class="game-title">Water Drop</h1>
-        <p class="game-tagline">Catch the good drops, avoid the bad ones!</p>
-        <div class="score-panel">
-            <div class="score">Score: <span id="score">0</span></div>
-            <div class="timer">Time: <span id="time">30</span>s</div>
-            <button id="start-btn">Start Game</button>
-        </div>
-        
-        <div id="game-container">
-        </div>
-    </div>
-    
+    <main class="game-wrapper">
+        <header class="game-header">
+            <h1>Drop It in the Bucket</h1>
+            <p>Move the bucket to catch clean water for communities around the world.</p>
+            <div class="game-instructions">
+                <strong>How to play</strong>
+                <span>Move the bucket with your mouse or finger. Catch blue drops for +1 or +3 points, avoid brown drops worth -5, and remember that missed drops cost points. The country scene changes as your score grows.</span>
+            </div>
+        </header>
+
+        <section class="score-panel" aria-label="Game status">
+            <div>Points: <strong id="score">0</strong></div>
+            <div>Timer: <strong id="time">0:45</strong></div>
+            <button id="start-btn" type="button">Start Game</button>
+            <button id="reset-btn" type="button">Reset</button>
+        </section>
+
+        <section id="game-container" class="theme-india" aria-label="Water catching game">
+            <div class="cloud cloud-left" aria-hidden="true"></div>
+            <div class="cloud cloud-right" aria-hidden="true"></div>
+            <div class="landscape" aria-hidden="true">
+                <div class="landscape-trees"><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div id="feedback" class="feedback" aria-live="polite">Move the bucket under a drop.</div>
+            <div id="confetti" aria-hidden="true"></div>
+            <div class="country-info">
+                <strong id="country-label">India</strong>
+                <span id="country-description">Clean water helps families stay healthy and children stay in school.</span>
+            </div>
+            <div id="bucket" class="bucket" aria-label="Water bucket">
+                    <div class="bucket-brand">
+                        <img src="img/cw_logo.png" alt="">
+                        <span>charity: water</span>
+                    </div>
+            </div>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
