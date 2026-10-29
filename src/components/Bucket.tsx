@@ -15,7 +15,7 @@ export const Bucket: React.FC<BucketProps> = ({ x, isStunned, bucketRef }) => {
       aria-label="Water bucket"
     >
       <div className="bucket-brand">
-        <img src="/img/cw_logo.png" alt="" />
+        <img src="./img/cw_logo.png" alt="" />
         <span>charity: water</span>
       </div>
     </div>

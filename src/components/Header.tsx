@@ -4,7 +4,7 @@ export const Header: React.FC = () => {
   return (
     <header className="game-header">
       <div className="brand-badge">
-        <img src="/img/cw_logo.png" alt="charity: water logo" />
+        <img src="./img/cw_logo.png" alt="charity: water logo" />
         <span>charity: water</span>
       </div>
       <h1>Drop It in the Bucket</h1>

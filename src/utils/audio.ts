@@ -17,6 +17,7 @@ class SoundManager {
 
   private preloadSounds() {
     if (typeof window === 'undefined') return;
+    const basePath = (import.meta.env.BASE_URL || './').replace(/\/+$/, '') + '/';
     const soundFiles = [
       'button',
       'collect',
@@ -28,7 +29,7 @@ class SoundManager {
     ];
     soundFiles.forEach((name) => {
       try {
-        const audio = new Audio(`/sounds/${name}.wav`);
+        const audio = new Audio(`${basePath}sounds/${name}.wav`);
         audio.preload = 'auto';
         this.soundCache.set(name, audio);
       } catch {
@@ -42,7 +43,8 @@ class SoundManager {
 
     try {
       // Use cloned audio instance for zero-latency overlapping playback
-      const audio = new Audio(`/sounds/${name}.wav`);
+      const basePath = (import.meta.env.BASE_URL || './').replace(/\/+$/, '') + '/';
+      const audio = new Audio(`${basePath}sounds/${name}.wav`);
       audio.volume = 0.55;
       const promise = audio.play();
       if (promise !== undefined) {

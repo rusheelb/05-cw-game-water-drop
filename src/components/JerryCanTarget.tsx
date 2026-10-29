@@ -28,7 +28,7 @@ export const JerryCanTarget: React.FC<JerryCanTargetProps> = ({ item, onCollect 
       title="Tap to collect +5 bonus water points!"
     >
       <img
-        src="/img/water-can-transparent.png"
+        src="./img/water-can-transparent.png"
         alt="charity: water yellow jerry can"
         className="jerry-can-img"
         draggable={false}

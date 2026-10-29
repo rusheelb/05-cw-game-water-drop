@@ -9,7 +9,7 @@ export const CharityWaterFooter: React.FC = () => {
         <div className="charity-footer-top">
           <div className="charity-footer-brand">
             <img
-              src="/img/cw_logo-horizontal.png"
+              src="./img/cw_logo-horizontal.png"
               alt="charity: water"
               className="charity-footer-logo"
             />
