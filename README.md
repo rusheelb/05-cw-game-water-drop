@@ -1,46 +1,64 @@
-# charity: water – Water Drop Game Starter
-In this game, users collect as many falling water drops as possible. Users tap to collect drops before they hit the ground. You’ll be working from a partially built version of the game. Some functionality is already provided, and your job is to complete the rest.
+# Drop It in the Bucket – charity: water
 
-## What’s Already Done
+An interactive, responsive React application built with TypeScript and Vite. Players move a charity: water bucket to catch clean water droplets and avoid contaminated drops to support water projects across India, Ethiopia, Haiti, and Uganda.
 
-The starter files already include:
+## Features
 
-- A **heading and tagline**
-- A **start button**
-- A **game container** where water drops appear
-- A **placeholder timer and score** (not functional yet)
-- A **logo image** from charity: water
-- Working code that:
-  - Starts the game when the start button is clicked
-  - Makes water drops fall randomly at different sizes
+- **Difficulty Modes**:
+  - **Easy**: 60s timer, relaxed drop speed, 8% brown drops, win goal 15 points.
+  - **Normal**: 45s timer, standard speed, 15% brown drops, win goal 20 points.
+  - **Hard**: 30s timer, high-velocity drops, 25% brown drops, win goal 30 points.
+- **Sound Effects (Audio Clips)**:
+  - Custom audio files stored in `/public/sounds/`:
+    - `collect.wav`: Clear water droplet chime on collecting normal blue drops
+    - `bonus.wav`: Sparkle chime when catching bonus +3 drops
+    - `miss.wav`: Thud/buzzer when a drop hits the ground or a brown drop is caught
+    - `button.wav`: Crisp button tap when clicking Start, Reset, Mute, or Difficulty tabs
+    - `win.wav`: Celebratory brass fanfare upon completing a winning run
+    - `milestone.wav`: Uplifting bell chime when crossing score milestones
+    - `jerrycan.wav`: Rich golden chime when collecting floating Jerry Cans
+  - Full fallback to Web Audio synthesis if browser restrictions apply, with sound toggle mute control.
+- **Milestone Tracking & Display**:
+  - Array of score milestone messages triggered conditionally as score advances:
+    - **5 pts**: *"First Splash! 💧 – Great start! 5 points collected—every drop counts."*
+    - **10 pts**: *"Halfway There! 🌊 – Halfway there! 10 points on the board—keep that bucket moving!"*
+    - **15 pts**: *"Ethiopia Reached! 🌍 – 15 points! Clean water is opening doors for schools and families!"*
+    - **20 pts**: *"Goal Achieved! 🎉 – 20 points! You’ve unlocked safe drinking water for communities in need!"*
+    - **25 pts**: *"Super Supporter! ⭐ – 25 points! Your momentum is unstoppable—keep catching!"*
+    - **30 pts**: *"Haiti Hills Unlocked! ⛰️ – 30 points! Fresh water brings health, hygiene, and hope!"*
+    - **40 pts**: *"Water Champion! 🏆 – 40 points! Extraordinary dedication to global clean water!"*
+    - **45 pts**: *"Uganda Horizon Reached! ☀️ – 45 points! Families spend hours less walking for water each day!"*
+    - **50 pts**: *"Century Well Legend! 👑 – 50 points! An entire village supported with abundant clean water!"*
+  - Animated gold-bordered milestone banner appears dynamically with score badge, celebratory chime, and auto-dismissal.
+- **Dynamic Country Environments**:
+  - Landscape background gradients and foliage dynamically update as your score grows:
+    - **India** (0+ points)
+    - **Ethiopia** (15+ points)
+    - **Haiti** (30+ points)
+    - **Uganda** (45+ points)
+- **charity: water Branding**:
+  - Official charity: water palette (Charcoal `#231f20`, Yellow `#ffc907`, Blue `#0d91df`)
+  - Bucket branded with charity: water logo
+  - High score tracking stored across sessions in `localStorage`
+  - Audio sound effects synthesized with Web Audio API (toggleable mute)
+  - Confetti celebration and randomized encouraging winning/losing messages upon game completion
 
-## What You Need to Add
+## Tech Stack
 
-Here’s what you're required to implement to bring the game to life:
+- **Framework**: React 18, TypeScript, Vite
+- **Styling**: CSS3 with CSS variables, clip-path landscapes, and responsive clamp sizing
+- **Celebration**: canvas-confetti
+- **Icons**: lucide-react
 
-### Game Functionality
+## Development
 
-- **Update the score**
-  - +1 point for each drop clicked  
+```bash
+# Install dependencies
+npm install
 
-- **Add a 30-second timer**
-  - When the timer reaches 0, the game ends  
+# Start development server
+npm run dev
 
-- **Display a message when the game ends**
-  - If the player scores **20 or more points**, show a **winning** message  
-  - If the player scores **less than 20 points**, show a **"try again"** message  
-  - Create one array of possible winning messages and one array of losing messages
-  - Depending on whether the user wins or loses, randomly pick and display a message from the appropriate array
-
-### Visual Styling
-
-- **Add charity: water branding**
-  
-  - Use the provided logo  
-  - Use the [charity: water brand guidelines](https://drive.google.com/file/d/1ct4zYRIwHAtxoNQoeaVwWYPdnruSC6sr/view) to stay on-brand with colors and styling
-  - Add styling rules to ensure your game layout adjusts well across different screen sizes
-
-
-These are the minimum requirements, but if you'd like an additional challenge go ahead and give the LevelUps a shot! For example, you can set up logic to make some of the drops "bad" drops that remove points if the user click them, complete with a different color to distinguish them from "good" drops. Have fun and make the game your own!
-
-If you have any questions or need any assistance with your code, reach out to the HelpHub or attend a Drop-In Hour. You got this!!
+# Build for production
+npm run build
+```
